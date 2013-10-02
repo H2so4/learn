@@ -1783,15 +1783,15 @@ _kibana()
     echo -e "\033[1m-----------------------\033[7m Kibana \033[0m\033[1m----------------------------\033[0m"
 
     echo "[+] downloading app ... "
-    _waitfor wget -c https://github.com/elasticsearch/kibana/archive/master.tar.gz -O kibana.tar.gz
+    _waitfor wget http://download.elasticsearch.org/kibana/kibana/kibana-latest.zip -O kibana-latest.zip
 
     echo "[+] uncompresing files ... "
-    _waitfor tar -zxvf kibana.tar.gz
-    _cmd rm kibana.tar.gz
+    _waitfor unzip kibana-latest.zip
+    _cmd rm kibana-latest.zip
 
     echo "[+] installing ... "
-    _cmdsudo mv kibana-master/* /var/www/
-    _cmd rm -rf kibana-master
+    _cmdsudo mv kibana-latest/* /var/www/
+    _cmd rm -rf kibana-latest
 }
 
 _party()
